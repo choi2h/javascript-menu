@@ -2,6 +2,7 @@ import MenuRecommandController from './controller/MenuRecommendController.js';
 import IOService from './service/IOService.js';
 import InputView from './view/InputView.js';
 import OutputView from './view/OutputView.js';
+import Validator from './validation/Validator.js';
 
 const menus = {
 	'일식': '규동, 우동, 미소시루, 스시, 가츠동, 오니기리, 하이라이스, 라멘, 오코노미야끼',
@@ -13,10 +14,11 @@ const menus = {
 };
 
 class App {
-	play() {
-		const ioService = new IOService(InputView, OutputView);
+	async play() {
+		const validator = new Validator();
+		const ioService = new IOService(InputView, OutputView, validator);
 		const recommendController = new MenuRecommandController(ioService);
-		recommendController.start();
+		await recommendController.start();
 	}
 }
 

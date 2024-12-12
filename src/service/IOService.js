@@ -5,9 +5,19 @@ class IOService {
 
   #outputView;
 
-  constructor(inputView, outputView) {
+  #validator;
+
+  constructor(inputView, outputView, validator) {
     this.#inputView = inputView;
     this.#outputView = outputView;
+    this.#validator = validator;
+  }
+
+  async readCoachsNames() {
+    const input = await this.#inputView.readCoachsNames();
+    this.#validator.validateInputCoachNames(input);
+
+    return input;
   }
 
   printGameStart() {
