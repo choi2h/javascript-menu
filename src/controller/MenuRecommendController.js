@@ -1,12 +1,26 @@
 import Coach from '../model/Coach.js';
+import Category from '../model/Category.js';
 
 class MenuRecommandController {
   #ioService;
 
   #coaches;
 
-  constructor(ioService) {
+  #categories;
+
+  constructor(ioService, allMenusWithCategory) {
     this.#ioService = ioService;
+    this.#initCategories(allMenusWithCategory);
+  }
+
+  #initCategories(allMenusWithCategory) {
+    this.#categories = {};
+
+    const keys = Object.keys(allMenusWithCategory);
+    keys.forEach(name => {
+      const arr = allMenusWithCategory[name].split(',').filter(menu => menu);
+      this.#categories[name] = new Category(name, arr);
+    });
   }
 
   async start() {
