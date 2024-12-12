@@ -20,6 +20,13 @@ class IOService {
     return input;
   }
 
+  async readDislikeMenus(name) {
+    const input = await this.#inputView.readDislikeMenus(name);
+    this.#validator.validateInputDislikeMenus(input);
+
+    return input;
+  }
+
   printGameStart() {
     this.#outputView.print(OUTPUT_MESSAGE.serviceInfo.START_SERVICE);
   }

@@ -1,7 +1,4 @@
-import { Console } from '@woowacourse/mission-utils';
 import Coach from '../model/Coach.js';
-
-
 
 class MenuRecommandController {
   #ioService;
@@ -15,12 +12,25 @@ class MenuRecommandController {
   async start() {
     this.#ioService.printGameStart();
     await this.#settingCoaches();
-    console.log(this.#coaches);
+    await this.#settingCoachesDisLikeMenus();
   }
 
   async #settingCoaches() {
     const names = await this.#ioService.readCoachsNames();
     this.#coaches = names.split(',').map(name => new Coach(name));
+  }
+
+  async #settingCoachesDisLikeMenus() {
+    for (let i = 0; i < this.#coaches.length; i++) {
+      await this.#settingCoachDislikeMenus(this.#coaches[i]);
+    }
+  }
+
+  async #settingCoachDislikeMenus(coach) {
+    const inputMenus = await this.#ioService.readDislikeMenus(coach.name);
+    if (inputMenus !== '') {
+      inputMenus.split(',').forEach(menu => coach.addDislikeFood(menu));
+    }
   }
 }
 

@@ -5,7 +5,7 @@ const OUTPUT_MESSAGE = Object.freeze({
   },
   inputRequest: {
     REQUEST_COACHS_NAME: '코치의 이름을 입력해 주세요. (,로 구분)\n',
-    REQUEST_CAN_NOT_EAT_FOOD: (name) => `${name}(이)가 못 먹는 메뉴를 입력해 주세요.\n`,
+    REQUEST_DISLIKE_MENUS: (name) => `${name}(이)가 못 먹는 메뉴를 입력해 주세요.\n`,
   },
   recommendResult: {
     RESULT_INFO: '메뉴 추천 결과입니다.\n',

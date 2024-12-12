@@ -11,6 +11,10 @@ class Coach {
     this.#recommendFoods = [];
   }
 
+  get name() {
+    return this.#name;
+  }
+
   addDislikeFood(food) {
     this.#dislikeFoods.push(food);
   }
