@@ -9,6 +9,7 @@ const OUTPUT_MESSAGE = Object.freeze({
   },
   recommendResult: {
     RESULT_INFO: '메뉴 추천 결과입니다.\n',
+    RESULT_TITLE: '[ 구분 | 월요일 | 화요일 | 수요일 | 목요일 | 금요일 ]\n',
   }
 });
 

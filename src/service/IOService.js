@@ -31,6 +31,11 @@ class IOService {
     this.#outputView.print(OUTPUT_MESSAGE.serviceInfo.START_SERVICE);
   }
 
+  printResult(result) {
+    const title = OUTPUT_MESSAGE.recommendResult.RESULT_INFO + OUTPUT_MESSAGE.recommendResult.RESULT_TITLE;
+    this.#outputView.print(title + result);
+  }
+
   printGameEnd() {
     this.#outputView.print(OUTPUT_MESSAGE.serviceInfo.END_SERVICE);
   }

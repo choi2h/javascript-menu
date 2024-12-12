@@ -57,7 +57,7 @@ class Validator {
       throw new Error(ERROR_MESSAGE.default.ERROR_BLANK_MESSAGE);
     }
 
-    if (!this.#isBlank(input)) {
+    if (!this.#isEmpty(input)) {
       this.#checkInputMenusSize(input);
     }
   }
